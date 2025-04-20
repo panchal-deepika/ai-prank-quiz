@@ -140,7 +140,8 @@ function finalPrank() {
     
     // Create and display the image with the warning message
     const warningImage = document.createElement("img");
-    warningImage.src = "hack_warning.png"; // Path to your image file
+    warningImage.src = "https://github.com/panchal-deepika/ai-prank-quiz/blob/main/A_digital_art_piece_displays_a_warning_screen_with.png?raw=true";
+ // Path to your image file
     warningImage.style.position = "fixed";
     warningImage.style.top = "50%";
     warningImage.style.left = "50%";
