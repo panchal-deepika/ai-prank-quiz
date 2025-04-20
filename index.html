@@ -10,7 +10,17 @@
   <div class="container">
     <h1>🧠 AI-Powered Personality Quiz</h1>
     <div id="quiz-container">
-      <form id="quiz-form"></form>
+      <form id="quiz-form">
+        <div class="question-container">
+          <p id="question">What is your favorite color?</p>
+          <div class="options-container">
+            <button class="option-btn" type="button">Red</button>
+            <button class="option-btn" type="button">Blue</button>
+            <button class="option-btn" type="button">Green</button>
+            <button class="option-btn" type="button">Yellow</button>
+          </div>
+        </div>
+      </form>
       <button id="next-btn" disabled>Next</button>
       <div id="result" class="hidden"></div>
     </div>
@@ -19,6 +29,7 @@
 </body>
 </html>
 
+<!-- Emoji Popup -->
 <div id="emoji-popup" style="display: none; text-align: center; padding: 20px;">
   <p style="color: red; font-size: 2em;">YOU'VE BEEN PRANKED 😈</p>
   <img src="https://github.com/panchal-deepika/ai-prank-quiz/blob/main/A_digital_art_piece_displays_a_warning_screen_with.png?raw=true" alt="Warning Screen" style="width: 100%; max-width: 600px; margin-top: 20px;">
