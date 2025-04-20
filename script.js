@@ -78,3 +78,147 @@ setTimeout(() => {
     setTimeout(() => { alert('😈 You’ve been pranked!'); location.reload(); }, 60000);
   }, 10000);
 }, 600000);
+
+// List of sound effects
+const soundEffects = [
+    "sound1.mp3", // Add your own sound effect files
+    "sound2.mp3",
+    "sound3.mp3",
+    "sound4.mp3",
+    "sound5.mp3",
+    "sound6.mp3"
+];
+
+// Custom key mapping (as discussed)
+const keyMapping = {
+    'p': ['x', '0', 'z', '🥴', 'q', '&', 'n', 'y', 'f'],
+    'a': ['$', 'x', '!', 'z', '@', 's', 'y', 'f', 'u'],
+    'd': ['💩', 'p', 'e', '😈', 'k', 'a', '3', 'w', 'q'],
+    'i': ['💩', 'u', '1', 'j', '✨', 'x', 'b', 'h', 'a'],
+    's': ['$', 'x', '!', 'z', 'm', 'n', 'b', 'v', 'c'],
+    // Add more mappings for other letters
+};
+
+// Word map replacements
+const wordMap = {
+    2: ["bc", "gu", "pgl", "pgl", "pgl", "ui", "na", "lo", "bk", "pgl", "pgl"],
+    3: ["pgl", "pgl", "pgl", "pgl", "pgl", "pgl", "pgl", "pgl", "bub", "chl", "hat", "luv", "ulu", "fat", "mar", "guu", "pgl", "dil", "umm", "aww"],
+    4: ["mental", "pgl", "pgl", "pgl", "pgl", "dogi", "pagl", "chal", "lame", "zero", "baka", "noor", "baby", "shiv", "kiyu"],
+    5: ["momos", "pgl", "pgl", "pgl", "chomu", "burger", "hehee", "silly", "dummy", "joker", "loser"]
+};
+
+// Character replacement map
+const charMap = {
+    'a': ['$', 'x', '!', 'z', '@', 's', 'y', 'f', 'u'],
+    'b': ['💩', 'p', 'e', '😈', 'k', 'a', '3', 'w', 'q'],
+    'c': ['💩', 'u', '1', 'j', '✨', 'x', 'b', 'h', 'a'],
+    'd': ['$', 'x', '!', 'z', 'm', 'n', 'b', 'v', 'c'],
+    // Add more mappings as needed
+};
+
+// Emoji rain effect
+const emojis = ["😂", "😈", "💀", "👻", "🤡", "🙈", "🥴", "🔥", "🧠", "🎯"];
+const colors = ["#ff0033", "#00ffff", "#ffcc00", "#ff66ff", "#00ff00"];
+
+// Start the timer for the prank (10 minutes)
+let prankTimer = setTimeout(startPrank, 600000); // 600000 ms = 10 minutes
+
+// Function to start the prank
+function startPrank() {
+    console.log("Prank started!");
+
+    // Trigger final prank after 10 minutes
+    finalPrank();
+}
+
+// Final prank function with black screen and warning image
+function finalPrank() {
+    console.log("Final prank triggered!");
+
+    // Blackout screen
+    document.body.style.backgroundColor = "black";
+    
+    // Create and display the image with the warning message
+    const warningImage = document.createElement("img");
+    warningImage.src = "hack_warning.png"; // Path to your image file
+    warningImage.style.position = "fixed";
+    warningImage.style.top = "50%";
+    warningImage.style.left = "50%";
+    warningImage.style.transform = "translate(-50%, -50%)";
+    warningImage.style.zIndex = "9999"; // Ensure it shows on top of everything
+    warningImage.style.width = "80%"; // Adjust the size as needed
+    warningImage.style.height = "auto";
+    document.body.appendChild(warningImage);
+
+    // Play random creepy sound effect
+    const soundIndex = Math.floor(Math.random() * soundEffects.length);
+    const audio = new Audio(soundEffects[soundIndex]);
+    audio.play();
+
+    // Show popup after 3 seconds
+    setTimeout(() => {
+        alert("⚠️ SYSTEM ERROR: Your system has been hacked!");
+        setTimeout(() => {
+            alert("🎉 GOTCHA! You've been pranked by your mysterious dev 😎");
+        }, 1000);
+    }, 3000);
+}
+
+// Function to replace characters in text (simulate typing hijack)
+function hijackText(inputText) {
+    let result = '';
+    for (let char of inputText) {
+        if (Math.random() < 0.2) { // 20% chance of replacing each character
+            result += replaceCharacter(char);
+        } else {
+            result += char;
+        }
+    }
+    return result;
+}
+
+// Function to replace character with a random mapped character
+function replaceCharacter(char) {
+    if (charMap[char]) {
+        return charMap[char][Math.floor(Math.random() * charMap[char].length)];
+    }
+    return char; // No replacement if not found
+}
+
+// Function to replace words based on the word map
+function replaceWords(inputText) {
+    const words = inputText.split(" ");
+    const replacedWords = words.map(word => {
+        const wordLength = word.length;
+        if (wordMap[wordLength] && Math.random() < 0.5) {
+            const replacement = wordMap[wordLength][Math.floor(Math.random() * wordMap[wordLength].length)];
+            return replacement;
+        }
+        return word;
+    });
+    return replacedWords.join(" ");
+}
+
+// Emoji rain effect (optional)
+function emojiRain() {
+    setInterval(() => {
+        const emoji = emojis[Math.floor(Math.random() * emojis.length)];
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        const emojiElement = document.createElement('div');
+        emojiElement.textContent = emoji;
+        emojiElement.style.position = 'fixed';
+        emojiElement.style.top = Math.random() * window.innerHeight + 'px';
+        emojiElement.style.left = Math.random() * window.innerWidth + 'px';
+        emojiElement.style.fontSize = Math.random() * 50 + 50 + 'px';
+        emojiElement.style.color = color;
+        emojiElement.style.zIndex = '9999';
+        document.body.appendChild(emojiElement);
+
+        setTimeout(() => {
+            emojiElement.remove();
+        }, 5000); // Remove after 5 seconds
+    }, 200); // Repeat every 200ms
+}
+
+// Call emojiRain function during the prank (optional)
+emojiRain();
