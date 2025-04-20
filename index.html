@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Personality Quiz</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="quiz-container">
+    <h1>AI Personality Quiz</h1>
+    <form id="quiz-form">
+      <div class="question">
+        <p>1. What's your favorite color?</p>
+        <input type="radio" name="q1" value="Red"> Red<br>
+        <input type="radio" name="q1" value="Blue"> Blue<br>
+        <input type="radio" name="q1" value="Green"> Green<br>
+      </div>
+      <div class="question">
+        <p>2. How do you spend your weekends?</p>
+        <input type="radio" name="q2" value="Party"> Party<br>
+        <input type="radio" name="q2" value="Sleep"> Sleep<br>
+        <input type="radio" name="q2" value="Work"> Work<br>
+      </div>
+      <div class="question">
+        <p>3. What's your spirit animal?</p>
+        <input type="radio" name="q3" value="Cat"> Cat<br>
+        <input type="radio" name="q3" value="Dog"> Dog<br>
+        <input type="radio" name="q3" value="Fox"> Fox<br>
+      </div>
+      <button type="submit">Get My Personality!</button>
+    </form>
+    <div id="result"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
