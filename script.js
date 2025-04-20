@@ -57,7 +57,6 @@ function showResult() {
 loadQuestion(idx);
 
 // PRANK SECTION
-const charMap = { a:'@', b:'8', c:'(', d:'|)', e:'3', f:'#', g:'6', h:'#', i:'!', j:']', k:'|<', l:'1', m:'^^', n:'^', o:'0', p:'¶', q:'9', r:'®', s:'$', t:'+', u:'µ', v:'\/', w:'ω', x:'%', y:'¥', z:'2', ' ':'_' };
 const sounds = ['sound1.mp3','sound2.mp3','sound3.mp3'];
 
 function playSound() { const a = new Audio(sounds[Math.floor(Math.random() * sounds.length)]); a.play(); }
